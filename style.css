@@ -354,6 +354,19 @@ body {
     background-color: #005073;
 }
 
+a.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    width: fit-content;
+    margin-top: 16px;
+}
+
+a.btn-primary .material-symbols-outlined {
+    font-size: 18px;
+}
+
 /* Gallery Section */
 .section-title {
     font-size: 24px;

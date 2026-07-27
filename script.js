@@ -65,10 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const viewLatestLogBtn = document.getElementById('view-latest-log-btn');
     if (viewLatestLogBtn) {
         viewLatestLogBtn.addEventListener('click', () => {
-            // Find the link for minggu 3 and click it to reuse existing logic
-            const minggu3Link = document.querySelector('.nav-link[data-target="minggu-3"]');
-            if (minggu3Link) {
-                minggu3Link.click();
+            // Find the link for minggu 4 and click it to reuse existing logic
+            const minggu4Link = document.querySelector('.nav-link[data-target="minggu-4"]');
+            if (minggu4Link) {
+                minggu4Link.click();
             }
         });
     }
