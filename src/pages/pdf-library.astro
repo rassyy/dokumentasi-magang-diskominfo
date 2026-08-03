@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { DOCUMENTS } from '../data/documents';
+import { pdfLibrary } from '../scripts/pdfLibrary';
+
+const categories = ['all', ...new Set(DOCUMENTS.map((d) => d.category))];
+---
+
+<BaseLayout title="PDF Library | Dokumentasi Magang">
+  <div class="page-head container">
+    <h1 class="page-title">PDF Library</h1>
+    <p class="page-desc">Cari dan buka dokumen PDF dokumentasi.</p>
+  </div>
+  <div class="pdf-lib container">
+    <div class="pdf-controls">
+      <input type="search" id="pdf-search" class="pdf-search" placeholder="Cari dokumen..." />
+      <div class="pdf-filters" id="pdf-filters">
+        {categories.map((c) => (
+          <button class:list={['filter-btn', { active: c === 'all' }]} data-filter={c}>
+            {c === 'all' ? 'Semua' : c.replace('-', ' ')}
+          </button>
+        ))}
+      </div>
+    </div>
+    <div class="pdf-grid" id="pdf-grid">
+      {
+        DOCUMENTS.map((d) => (
+          <a href={d.file} target="_blank" rel="noopener" class="pdf-card card" data-category={d.category}>
+            <div class="pdf-icon">PDF</div>
+            <h4 class="pdf-title">{d.title}</h4>
+            {d.desc && <p class="pdf-desc">{d.desc}</p>}
+            <div class="pdf-meta">
+              <span class="doc-badge">{d.category}</span>
+              {d.week && <span class="pdf-week">Minggu {d.week}</span>}
+            </div>
+          </a>
+        ))
+      }
+    </div>
+  </div>
+  <script>
+    {pdfLibrary()}
+  </script>
+</BaseLayout>
