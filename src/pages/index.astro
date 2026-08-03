@@ -18,7 +18,7 @@ const latestDocs = DOCUMENTS.slice(0, 3);
       <a href="/dokumentasi" class="section-link">Lihat semua →</a>
     </div>
     <div class="topic-grid">
-      {TOPICS.map((t) => <TopicCard topic={t} />)}
+      {TOPICS.map((t, i) => <TopicCard topic={t} delay={i * 60} />)}
     </div>
   </section>
   <section class="container home-section">
@@ -27,8 +27,8 @@ const latestDocs = DOCUMENTS.slice(0, 3);
       <a href="/pdf-library" class="section-link">PDF Library →</a>
     </div>
     <div class="doc-grid">
-      {latestDocs.map((d) => (
-        <a href={d.file} target="_blank" rel="noopener" class="doc-card card">
+      {latestDocs.map((d, i) => (
+        <a href={d.file} target="_blank" rel="noopener" class="doc-card card fade-in-up" style={`transition-delay: ${i * 60}ms`}>
           <h4>{d.title}</h4>
           <p>{d.desc}</p>
           <span class="doc-badge">{d.category}</span>
@@ -41,7 +41,7 @@ const latestDocs = DOCUMENTS.slice(0, 3);
       <h2 class="section-title">Progress Magang</h2>
       <a href="/timeline" class="section-link">Timeline →</a>
     </div>
-    <div class="progress-card card">
+    <div class="progress-card card fade-in-up">
       <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
       <div class="progress-stats">
         <span>{WEEKS.filter(w => w.status === 'completed').length}/{WEEKS.length} minggu selesai</span>

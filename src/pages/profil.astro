@@ -16,14 +16,14 @@ const institution = {
     <p class="page-desc">Informasi mahasiswa magang dan instansi.</p>
   </div>
   <div class="profile-page container">
-    <section class="institution-card card">
+    <section class="institution-card card fade-in-up">
       <h2 class="profile-section-title">{institution.name}</h2>
       <p class="profile-desc">{institution.division} · {institution.campus}</p>
       <p class="profile-desc">Program Studi {institution.study}</p>
     </section>
     <div class="profile-grid">
-      {PROFILES.map((p) => (
-        <div class="profile-card card">
+      {PROFILES.map((p, i) => (
+        <div class="profile-card card fade-in-up" style={`transition-delay: ${i * 100}ms`}>
           <div class="profile-avatar">
             {p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
           </div>

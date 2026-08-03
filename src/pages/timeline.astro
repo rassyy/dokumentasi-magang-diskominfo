@@ -13,6 +13,8 @@ const sortedWeeks = [...WEEKS].sort((a, b) => a.number - b.number);
     <p class="page-desc">Perjalanan kegiatan magang minggu per minggu.</p>
   </div>
   <div class="timeline container">
-    {sortedWeeks.map((week) => <WeekCard week={week} documents={DOCUMENTS} />)}
+      {sortedWeeks.map((w, i) => (
+        <WeekCard week={w} documents={DOCUMENTS} delay={i * 80} />
+      ))}
   </div>
 </BaseLayout>

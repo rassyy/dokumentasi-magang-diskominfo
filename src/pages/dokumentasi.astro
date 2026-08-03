@@ -2,13 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { TOPICS } from '../data/topics';
 import { DOCUMENTS } from '../data/documents';
-
-const catLabel: Record<string, string> = {
-  networking: 'Networking',
-  virtualization: 'Virtualization',
-  cloud: 'Cloud & Security',
-  'ai-agent': 'AI Agent',
-};
 ---
 
 <BaseLayout title="Dokumentasi Teknis | Dokumentasi Magang">
@@ -28,8 +21,8 @@ const catLabel: Record<string, string> = {
             </div>
             {docs.length > 0 ? (
               <div class="topic-docs">
-                {docs.map((d) => (
-                  <a href={d.file} target="_blank" rel="noopener" class="topic-doc card">
+                {docs.map((d, i) => (
+                  <a href={d.file} target="_blank" rel="noopener" class="topic-doc card fade-in-up" style={`transition-delay: ${i * 50}ms`}>
                     <div>
                       <h4>{d.title}</h4>
                       {d.desc && <p>{d.desc}</p>}
@@ -39,7 +32,10 @@ const catLabel: Record<string, string> = {
                 ))}
               </div>
             ) : (
-              <p class="empty-note">Dokumentasi menyusul.</p>
+              <div class="card fade-in-up" style="padding: 32px; text-align: center; border-style: dashed; color: var(--muted-soft);">
+                <span class="material-symbols-outlined" style="font-size: 32px; margin-bottom: 8px;">topic</span>
+                <p>Dokumentasi belum tersedia untuk topik ini.</p>
+              </div>
             )}
           </section>
         );

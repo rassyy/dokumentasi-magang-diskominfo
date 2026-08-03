@@ -2,6 +2,7 @@
 import Sidebar from '../components/Sidebar.astro';
 import Topbar from '../components/Topbar.astro';
 import Footer from '../components/Footer.astro';
+import '../styles/global.css';
 
 interface Props {
   title?: string;
@@ -21,7 +22,7 @@ const { title = 'Dokumentasi Magang Diskominfo Tuban', description = 'Portal dok
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="/src/styles/global.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
   </head>
   <body>
     <div class="app-shell">
@@ -36,14 +37,68 @@ const { title = 'Dokumentasi Magang Diskominfo Tuban', description = 'Portal dok
     </div>
     <script>
       // Mobile sidebar toggle
-      const btn = document.getElementById('mobile-menu-btn');
-      const sidebar = document.getElementById('sidebar');
-      if (btn && sidebar) {
-        btn.addEventListener('click', () => {
-          sidebar.classList.toggle('open');
-          btn.setAttribute('aria-expanded', sidebar.classList.contains('open').toString());
+      const setupSidebar = () => {
+        const btn = document.getElementById('mobile-menu-btn');
+        const sidebar = document.getElementById('sidebar');
+        if (btn && sidebar) {
+          btn.addEventListener('click', () => {
+            sidebar.classList.toggle('open');
+            btn.setAttribute('aria-expanded', sidebar.classList.contains('open').toString());
+          });
+          
+          document.addEventListener('click', (e) => {
+            if (sidebar.classList.contains('open') && !sidebar.contains(e.target as Node) && !btn.contains(e.target as Node)) {
+              sidebar.classList.remove('open');
+              btn.setAttribute('aria-expanded', 'false');
+            }
+          });
+        }
+      };
+
+      // Intersection Observer for scroll animations
+      const setupObserver = () => {
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('visible');
+              
+              // Handle counters
+              if (entry.target.classList.contains('counter') && !entry.target.classList.contains('counted')) {
+                entry.target.classList.add('counted');
+                const target = parseFloat(entry.target.getAttribute('data-target') || '0');
+                const isPercent = entry.target.getAttribute('data-target')?.includes('%');
+                let count = 0;
+                const inc = target / 30;
+                const updateCount = () => {
+                  count += inc;
+                  if (count < target) {
+                    entry.target.textContent = Math.ceil(count).toString() + (isPercent ? '%' : '');
+                    requestAnimationFrame(updateCount);
+                  } else {
+                    entry.target.textContent = target.toString() + (isPercent ? '%' : '');
+                  }
+                };
+                updateCount();
+              }
+              
+              // Handle progress bar
+              if (entry.target.classList.contains('progress-fill')) {
+                const targetWidth = entry.target.getAttribute('data-width') || '0%';
+                (entry.target as HTMLElement).style.width = targetWidth;
+              }
+            }
+          });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.fade-in-up, .counter, .progress-fill').forEach((el) => {
+          observer.observe(el);
         });
-      }
+      };
+
+      document.addEventListener('DOMContentLoaded', () => {
+        setupSidebar();
+        setupObserver();
+      });
     </script>
   </body>
 </html>

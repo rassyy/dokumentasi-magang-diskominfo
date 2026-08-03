@@ -1,7 +1,7 @@
 ---
 import type { Week, DocumentItem } from '../types';
-interface Props { week: Week; documents: DocumentItem[]; }
-const { week, documents } = Astro.props;
+interface Props { week: Week; documents: DocumentItem[]; delay?: number; }
+const { week, documents, delay = 0 } = Astro.props;
 const weekDocs = documents.filter((d) => week.documents.includes(d.id));
 const catLabel: Record<string, string> = {
   networking: 'Networking',
@@ -11,12 +11,12 @@ const catLabel: Record<string, string> = {
 };
 ---
 
-<article class:list={['week-card', `status-${week.status}`]}>
-  <div class="week-dot"></div>
+<article class:list={['week-card', `status-${week.status}`, 'fade-in-up']} style={delay ? `transition-delay: ${delay}ms` : ''}>
+  <div class="week-dot" style={week.status === 'completed' ? 'animation: pulse-ring 2s infinite;' : ''}></div>
   <div class="week-content card">
     <div class="week-head">
       <span class="week-badge">Minggu {week.number}</span>
-      <span class:list={['status-badge', week.status]}>{week.status === 'completed' ? 'Selesai' : 'Planned'}</span>
+      <span class:list={['status-badge', `status-${week.status}`]}>{week.status === 'completed' ? 'Selesai' : 'Planned'}</span>
     </div>
     <h3 class="week-title">{week.title}</h3>
     <p class="week-subtitle">{week.subtitle}</p>
@@ -42,3 +42,11 @@ const catLabel: Record<string, string> = {
     )}
   </div>
 </article>
+
+<style>
+  @keyframes pulse-ring {
+    0% { box-shadow: 0 0 0 0 rgba(0, 117, 222, 0.4); }
+    70% { box-shadow: 0 0 0 6px rgba(0, 117, 222, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(0, 117, 222, 0); }
+  }
+</style>

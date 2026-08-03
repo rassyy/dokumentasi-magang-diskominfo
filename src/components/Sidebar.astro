@@ -1,18 +1,18 @@
 ---
 const navItems = [
   { href: '/', label: 'Overview', icon: 'home' },
-  { href: '/timeline', label: 'Timeline Magang', icon: 'calendar' },
-  { href: '/dokumentasi', label: 'Dokumentasi Teknis', icon: 'book' },
-  { href: '/pdf-library', label: 'PDF Library', icon: 'description' },
+  { href: '/timeline', label: 'Timeline Magang', icon: 'calendar_today' },
+  { href: '/dokumentasi', label: 'Dokumentasi Teknis', icon: 'menu_book' },
+  { href: '/pdf-library', label: 'PDF Library', icon: 'folder_open' },
   { href: '/profil', label: 'Profil', icon: 'person' },
 ];
 
 const currentPath = Astro.url.pathname;
 ---
 
-<aside class="sidebar" id="sidebar">
+<aside class="sidebar glass" id="sidebar">
   <div class="sidebar-header">
-    <span class="sidebar-logo">DM</span>
+    <span class="sidebar-logo" style="background: linear-gradient(135deg, var(--accent), #004d99);">DM</span>
     <div>
       <h1 class="sidebar-title">Docs Magang</h1>
       <p class="sidebar-subtitle">Diskominfo Tuban</p>
@@ -25,7 +25,7 @@ const currentPath = Astro.url.pathname;
           href={item.href}
           class:list={['nav-link', { active: currentPath === item.href }]}
         >
-          <span class="nav-icon">{item.icon}</span>
+          <span class="nav-icon material-symbols-outlined">{item.icon}</span>
           {item.label}
         </a>
       ))

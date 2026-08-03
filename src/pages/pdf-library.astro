@@ -23,9 +23,9 @@ const categories = ['all', ...new Set(DOCUMENTS.map((d) => d.category))];
     </div>
     <div class="pdf-grid" id="pdf-grid">
       {
-        DOCUMENTS.map((d) => (
-          <a href={d.file} target="_blank" rel="noopener" class="pdf-card card" data-category={d.category}>
-            <div class="pdf-icon">PDF</div>
+        DOCUMENTS.map((d, i) => (
+          <a href={d.file} target="_blank" rel="noopener" class="pdf-card card fade-in-up" data-category={d.category} style={`transition-delay: ${i * 40}ms`}>
+            <div class="pdf-icon material-symbols-outlined" style="font-size: 24px;">picture_as_pdf</div>
             <h4 class="pdf-title">{d.title}</h4>
             {d.desc && <p class="pdf-desc">{d.desc}</p>}
             <div class="pdf-meta">
@@ -36,10 +36,15 @@ const categories = ['all', ...new Set(DOCUMENTS.map((d) => d.category))];
         ))
       }
     </div>
+    <div id="pdf-empty-state" class="card" style="display: none; padding: 48px; text-align: center; color: var(--muted); border-style: dashed;">
+      <span class="material-symbols-outlined" style="font-size: 48px; color: var(--muted-soft); margin-bottom: 16px;">search_off</span>
+      <h3>Tidak ada dokumen ditemukan</h3>
+      <p>Coba gunakan kata kunci atau filter lain.</p>
+    </div>
   </div>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const search = document.getElementById('pdf-search');
+      const search = document.getElementById('pdf-search') as HTMLInputElement;
       const filters = document.querySelectorAll('.filter-btn');
       const cards = document.querySelectorAll('.pdf-card');
 
@@ -48,14 +53,22 @@ const categories = ['all', ...new Set(DOCUMENTS.map((d) => d.category))];
       const applyFilter = () => {
         const q = search.value.toLowerCase();
         const activeFilter = document.querySelector('.filter-btn.active')?.getAttribute('data-filter') || 'all';
+        let visibleCount = 0;
         cards.forEach((card) => {
           const title = (card.querySelector('.pdf-title')?.textContent || '').toLowerCase();
           const desc = (card.querySelector('.pdf-desc')?.textContent || '').toLowerCase();
           const cat = card.getAttribute('data-category') || '';
           const matchQ = !q || title.includes(q) || desc.includes(q);
           const matchF = activeFilter === 'all' || cat === activeFilter;
-          card.style.display = matchQ && matchF ? '' : 'none';
+          const isVisible = matchQ && matchF;
+          (card as HTMLElement).style.display = isVisible ? '' : 'none';
+          if (isVisible) visibleCount++;
         });
+
+        const emptyState = document.getElementById('pdf-empty-state');
+        if (emptyState) {
+          emptyState.style.display = visibleCount === 0 ? 'block' : 'none';
+        }
       };
 
       search.addEventListener('input', applyFilter);
