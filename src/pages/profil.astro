@@ -1,0 +1,40 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { PROFILES } from '../data/profiles';
+
+const institution = {
+  name: 'Diskominfo Tuban',
+  division: 'Divisi Aplikasi Informatika',
+  campus: 'Universitas Islam Negeri Maulana Malik Ibrahim Malang',
+  study: 'Teknik Informatika',
+};
+---
+
+<BaseLayout title="Profil | Dokumentasi Magang">
+  <div class="page-head container">
+    <h1 class="page-title">Profil</h1>
+    <p class="page-desc">Informasi mahasiswa magang dan instansi.</p>
+  </div>
+  <div class="profile-page container">
+    <section class="institution-card card">
+      <h2 class="profile-section-title">{institution.name}</h2>
+      <p class="profile-desc">{institution.division} · {institution.campus}</p>
+      <p class="profile-desc">Program Studi {institution.study}</p>
+    </section>
+    <div class="profile-grid">
+      {PROFILES.map((p) => (
+        <div class="profile-card card">
+          <div class="profile-avatar">
+            {p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
+          </div>
+          <h3 class="profile-name">{p.name}</h3>
+          <p class="profile-role">{p.role}</p>
+          <div class="profile-meta">
+            <p><strong>NIM:</strong> {p.nim}</p>
+            <p><strong>Studi:</strong> {p.study}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</BaseLayout>
