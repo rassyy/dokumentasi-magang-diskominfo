@@ -18,12 +18,15 @@ const currentPath = Astro.url.pathname;
       <p class="sidebar-subtitle">Diskominfo Tuban</p>
     </div>
   </div>
-  <nav class="sidebar-nav">
+  <nav class="sidebar-nav" id="sidebar-nav">
+    <!-- sliding indicator, positioned by JS -->
+    <div class="nav-indicator" id="nav-indicator"></div>
     {
-      navItems.map((item) => (
+      navItems.map((item, i) => (
         <a
           href={item.href}
           class:list={['nav-link', { active: currentPath === item.href }]}
+          data-index={i}
         >
           <span class="nav-icon material-symbols-outlined">{item.icon}</span>
           {item.label}
@@ -35,3 +38,37 @@ const currentPath = Astro.url.pathname;
     <p>© {new Date().getFullYear()} Magang Aptika</p>
   </div>
 </aside>
+
+<script>
+  // Slide the active pill indicator to the current nav item
+  const nav = document.getElementById('sidebar-nav');
+  const indicator = document.getElementById('nav-indicator');
+  if (nav && indicator) {
+    const position = () => {
+      const active = nav.querySelector('.nav-link.active');
+      if (!active) return;
+      indicator.style.top = active.offsetTop + 'px';
+      indicator.style.height = active.offsetHeight + 'px';
+      indicator.style.opacity = '1';
+    };
+    // Run after fonts/layout settle
+    requestAnimationFrame(() => requestAnimationFrame(position));
+    window.addEventListener('resize', position);
+  }
+</script>
+
+<style>
+  .sidebar-nav {
+    position: relative;
+  }
+  .nav-indicator {
+    position: absolute;
+    left: 0;
+    width: 4px;
+    border-radius: 99px;
+    background: linear-gradient(180deg, var(--accent), #004d99);
+    opacity: 0;
+    transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1), height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
+    z-index: 0;
+  }
+</style>
