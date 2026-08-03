@@ -1,4 +1,8 @@
 ---
+import Sidebar from '../components/Sidebar.astro';
+import Topbar from '../components/Topbar.astro';
+import Footer from '../components/Footer.astro';
+
 interface Props {
   title?: string;
   description?: string;
@@ -20,6 +24,26 @@ const { title = 'Dokumentasi Magang Diskominfo Tuban', description = 'Portal dok
     <link rel="stylesheet" href="/src/styles/global.css" />
   </head>
   <body>
-    <slot />
+    <div class="app-shell">
+      <Sidebar />
+      <div class="main-area">
+        <Topbar />
+        <main class="main-content">
+          <slot />
+        </main>
+        <Footer />
+      </div>
+    </div>
+    <script>
+      // Mobile sidebar toggle
+      const btn = document.getElementById('mobile-menu-btn');
+      const sidebar = document.getElementById('sidebar');
+      if (btn && sidebar) {
+        btn.addEventListener('click', () => {
+          sidebar.classList.toggle('open');
+          btn.setAttribute('aria-expanded', sidebar.classList.contains('open').toString());
+        });
+      }
+    </script>
   </body>
 </html>

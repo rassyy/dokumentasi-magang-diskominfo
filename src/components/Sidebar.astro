@@ -1,0 +1,37 @@
+---
+const navItems = [
+  { href: '/', label: 'Overview', icon: 'home' },
+  { href: '/timeline', label: 'Timeline Magang', icon: 'calendar' },
+  { href: '/dokumentasi', label: 'Dokumentasi Teknis', icon: 'book' },
+  { href: '/pdf-library', label: 'PDF Library', icon: 'description' },
+  { href: '/profil', label: 'Profil', icon: 'person' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<aside class="sidebar" id="sidebar">
+  <div class="sidebar-header">
+    <span class="sidebar-logo">DM</span>
+    <div>
+      <h1 class="sidebar-title">Docs Magang</h1>
+      <p class="sidebar-subtitle">Diskominfo Tuban</p>
+    </div>
+  </div>
+  <nav class="sidebar-nav">
+    {
+      navItems.map((item) => (
+        <a
+          href={item.href}
+          class:list={['nav-link', { active: currentPath === item.href }]}
+        >
+          <span class="nav-icon">{item.icon}</span>
+          {item.label}
+        </a>
+      ))
+    }
+  </nav>
+  <div class="sidebar-footer">
+    <p>© {new Date().getFullYear()} Magang Aptika</p>
+  </div>
+</aside>
