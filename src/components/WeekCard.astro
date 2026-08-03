@@ -1,0 +1,44 @@
+---
+import type { Week, DocumentItem } from '../types';
+interface Props { week: Week; documents: DocumentItem[]; }
+const { week, documents } = Astro.props;
+const weekDocs = documents.filter((d) => week.documents.includes(d.id));
+const catLabel: Record<string, string> = {
+  networking: 'Networking',
+  virtualization: 'Virtualization',
+  cloud: 'Cloud & Security',
+  'ai-agent': 'AI Agent',
+};
+---
+
+<article class:list={['week-card', `status-${week.status}`]}>
+  <div class="week-dot"></div>
+  <div class="week-content card">
+    <div class="week-head">
+      <span class="week-badge">Minggu {week.number}</span>
+      <span class:list={['status-badge', week.status]}>{week.status === 'completed' ? 'Selesai' : 'Planned'}</span>
+    </div>
+    <h3 class="week-title">{week.title}</h3>
+    <p class="week-subtitle">{week.subtitle}</p>
+    <p class="week-summary">{week.summary}</p>
+    {week.categories.length > 0 && (
+      <div class="week-cats">
+        {week.categories.map((c) => <span class="cat-chip">{catLabel[c] ?? c}</span>)}
+      </div>
+    )}
+    {week.activities.length > 0 && (
+      <ul class="week-activities">
+        {week.activities.map((a) => <li>{a.title}</li>)}
+      </ul>
+    )}
+    {weekDocs.length > 0 && (
+      <div class="week-docs">
+        {weekDocs.map((d) => (
+          <a href={d.file} target="_blank" rel="noopener" class="doc-link">
+            📄 {d.title}
+          </a>
+        ))}
+      </div>
+    )}
+  </div>
+</article>

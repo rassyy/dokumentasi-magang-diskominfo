@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import WeekCard from '../components/WeekCard.astro';
+import { WEEKS } from '../data/weeks';
+import { DOCUMENTS } from '../data/documents';
+
+const sortedWeeks = [...WEEKS].sort((a, b) => a.number - b.number);
+---
+
+<BaseLayout title="Timeline Magang | Dokumentasi Magang">
+  <div class="page-head container">
+    <h1 class="page-title">Timeline Magang</h1>
+    <p class="page-desc">Perjalanan kegiatan magang minggu per minggu.</p>
+  </div>
+  <div class="timeline container">
+    {sortedWeeks.map((week) => <WeekCard week={week} documents={DOCUMENTS} />)}
+  </div>
+</BaseLayout>
