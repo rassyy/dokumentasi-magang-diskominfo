@@ -1,0 +1,49 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { TOPICS } from '../data/topics';
+import { DOCUMENTS } from '../data/documents';
+
+const catLabel: Record<string, string> = {
+  networking: 'Networking',
+  virtualization: 'Virtualization',
+  cloud: 'Cloud & Security',
+  'ai-agent': 'AI Agent',
+};
+---
+
+<BaseLayout title="Dokumentasi Teknis | Dokumentasi Magang">
+  <div class="page-head container">
+    <h1 class="page-title">Dokumentasi Teknis</h1>
+    <p class="page-desc">Kumpulan dokumentasi dan artefak teknis per domain.</p>
+  </div>
+  <div class="docs-list container">
+    {
+      TOPICS.map((topic) => {
+        const docs = DOCUMENTS.filter((d) => topic.docs.includes(d.id));
+        return (
+          <section class="topic-section" id={topic.id}>
+            <div class="topic-section-head">
+              <h2 class="topic-section-title">{topic.name}</h2>
+              <p class="topic-section-desc">{topic.desc}</p>
+            </div>
+            {docs.length > 0 ? (
+              <div class="topic-docs">
+                {docs.map((d) => (
+                  <a href={d.file} target="_blank" rel="noopener" class="topic-doc card">
+                    <div>
+                      <h4>{d.title}</h4>
+                      {d.desc && <p>{d.desc}</p>}
+                    </div>
+                    <span class="doc-badge">{d.week ? `Minggu ${d.week}` : 'Umum'}</span>
+                  </a>
+                ))}
+              </div>
+            ) : (
+              <p class="empty-note">Dokumentasi menyusul.</p>
+            )}
+          </section>
+        );
+      })
+    }
+  </div>
+</BaseLayout>

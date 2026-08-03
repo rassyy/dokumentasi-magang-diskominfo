@@ -288,3 +288,17 @@ a:hover { text-decoration: underline; }
 
 .week-docs { display: flex; flex-direction: column; gap: 6px; padding-top: 8px; border-top: 1px solid var(--border); }
 .doc-link { font-size: 14px; font-weight: 500; }
+
+.docs-list { display: flex; flex-direction: column; gap: 48px; padding-bottom: 48px; }
+
+.topic-section { display: flex; flex-direction: column; gap: 16px; }
+.topic-section-head { display: flex; flex-direction: column; gap: 4px; }
+.topic-section-title { font-size: 24px; font-weight: 700; }
+.topic-section-desc { font-size: 14px; color: var(--muted); }
+
+.topic-docs { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 16px; }
+.topic-doc { display: flex; justify-content: space-between; align-items: flex-start; gap: 16px; padding: 20px; text-decoration: none; color: var(--text); }
+.topic-doc:hover { text-decoration: none; box-shadow: var(--shadow-card); transform: translateY(-2px); }
+.topic-doc h4 { font-size: 15px; font-weight: 700; margin-bottom: 4px; }
+.topic-doc p { font-size: 13px; color: var(--muted); }
+.empty-note { font-size: 14px; color: var(--muted-soft); font-style: italic; }
