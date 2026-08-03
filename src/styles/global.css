@@ -186,3 +186,70 @@ a:hover { text-decoration: underline; }
   .main-area { margin-left: 0; }
   .mobile-menu-btn { display: block; }
 }
+
+.hero {
+  padding: 96px 24px 64px;
+  background: var(--bg-soft);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.hero-inner { max-width: 1160px; margin: 0 auto; display: flex; flex-direction: column; gap: 24px; }
+
+.hero-badge {
+  align-self: flex-start;
+  background: var(--accent-soft);
+  color: var(--accent);
+  padding: 6px 14px;
+  border-radius: 9999px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.hero-title {
+  font-size: clamp(32px, 5vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  font-weight: 700;
+  max-width: 720px;
+}
+
+.hero-desc { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 600px; }
+
+.hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.hero-stats {
+  display: flex;
+  gap: 32px;
+  margin-top: 24px;
+  flex-wrap: wrap;
+}
+.hero-stat { display: flex; flex-direction: column; gap: 2px; }
+.hero-stat strong { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+.hero-stat span { font-size: 13px; color: var(--muted); }
+
+.home-section { padding: 48px 0; }
+.section-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 24px; }
+.section-title { font-size: 28px; font-weight: 700; letter-spacing: -0.02em; }
+.section-link { font-size: 14px; font-weight: 600; }
+
+.topic-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+
+.topic-card { display: flex; flex-direction: column; gap: 8px; padding: 24px; text-decoration: none; color: var(--text); }
+.topic-card:hover { text-decoration: none; box-shadow: var(--shadow-card); transform: translateY(-2px); }
+.topic-name { font-size: 18px; font-weight: 700; }
+.topic-desc { font-size: 14px; color: var(--muted); }
+.topic-count { font-size: 12px; color: var(--accent); font-weight: 600; }
+
+.doc-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 16px; }
+.doc-card { display: flex; flex-direction: column; gap: 8px; padding: 24px; text-decoration: none; color: var(--text); }
+.doc-card:hover { text-decoration: none; box-shadow: var(--shadow-card); transform: translateY(-2px); }
+.doc-card h4 { font-size: 16px; font-weight: 700; }
+.doc-card p { font-size: 13px; color: var(--muted); }
+.doc-badge { align-self: flex-start; background: var(--accent-soft); color: var(--accent); font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 9999px; text-transform: uppercase; letter-spacing: 0.05em; }
+
+.progress-card { padding: 24px; }
+.progress-bar { width: 100%; background: var(--bg-soft); height: 10px; border-radius: 9999px; overflow: hidden; margin-bottom: 12px; }
+.progress-fill { background: var(--accent); height: 100%; border-radius: 9999px; }
+.progress-stats { display: flex; justify-content: space-between; font-size: 13px; font-weight: 600; color: var(--muted); }

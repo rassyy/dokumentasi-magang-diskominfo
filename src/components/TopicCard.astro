@@ -1,0 +1,11 @@
+---
+import type { Topic } from '../types';
+interface Props { topic: Topic; }
+const { topic } = Astro.props;
+---
+
+<a href="/dokumentasi" class="topic-card card">
+  <h3 class="topic-name">{topic.name}</h3>
+  <p class="topic-desc">{topic.desc}</p>
+  <span class="topic-count">{topic.docs.length} dokumen</span>
+</a>

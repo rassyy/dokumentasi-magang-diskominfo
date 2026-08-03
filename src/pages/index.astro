@@ -1,10 +1,52 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import TopicCard from '../components/TopicCard.astro';
+import { DOCUMENTS } from '../data/documents';
+import { TOPICS } from '../data/topics';
+import { WEEKS } from '../data/weeks';
+import { PROFILES } from '../data/profiles';
+
+const latestDocs = DOCUMENTS.slice(0, 3);
 ---
 
 <BaseLayout title="Overview | Dokumentasi Magang">
-  <main class="container" style="padding-top: 120px">
-    <h1>Overview</h1>
-    <p>Placeholder — task selanjutnya mengganti ini.</p>
-  </main>
+  <Hero />
+  <section class="container home-section">
+    <div class="section-head">
+      <h2 class="section-title">Topik Teknis</h2>
+      <a href="/dokumentasi" class="section-link">Lihat semua →</a>
+    </div>
+    <div class="topic-grid">
+      {TOPICS.map((t) => <TopicCard topic={t} />)}
+    </div>
+  </section>
+  <section class="container home-section">
+    <div class="section-head">
+      <h2 class="section-title">Dokumen Terbaru</h2>
+      <a href="/pdf-library" class="section-link">PDF Library →</a>
+    </div>
+    <div class="doc-grid">
+      {latestDocs.map((d) => (
+        <a href={d.file} target="_blank" rel="noopener" class="doc-card card">
+          <h4>{d.title}</h4>
+          <p>{d.desc}</p>
+          <span class="doc-badge">{d.category}</span>
+        </a>
+      ))}
+    </div>
+  </section>
+  <section class="container home-section">
+    <div class="section-head">
+      <h2 class="section-title">Progress Magang</h2>
+      <a href="/timeline" class="section-link">Timeline →</a>
+    </div>
+    <div class="progress-card card">
+      <div class="progress-bar"><div class="progress-fill" style="width: 80%"></div></div>
+      <div class="progress-stats">
+        <span>{WEEKS.filter(w => w.status === 'completed').length}/{WEEKS.length} minggu selesai</span>
+        <span>{PROFILES.length} mahasiswa</span>
+      </div>
+    </div>
+  </section>
 </BaseLayout>

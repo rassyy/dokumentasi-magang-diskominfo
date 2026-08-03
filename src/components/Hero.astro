@@ -1,0 +1,33 @@
+---
+const stats = [
+  { value: '5', label: 'Minggu Magang' },
+  { value: '7', label: 'Dokumen PDF' },
+  { value: '4', label: 'Topik Teknis' },
+  { value: '80%', label: 'Progress' },
+];
+---
+
+<section class="hero">
+  <div class="container hero-inner">
+    <span class="hero-badge">UIN Malang · Diskominfo Tuban · Divisi Aptika</span>
+    <h1 class="hero-title">Portal Dokumentasi Magang Diskominfo Tuban</h1>
+    <p class="hero-desc">
+      Dokumentasi kegiatan magang, logbook mingguan, dan artefak teknis —
+      dari jaringan, virtualisasi, hingga AI agent infrastructure.
+    </p>
+    <div class="hero-actions">
+      <a href="/timeline" class="btn btn-primary">Lihat Timeline</a>
+      <a href="/pdf-library" class="btn btn-ghost">Buka PDF Library</a>
+    </div>
+    <div class="hero-stats">
+      {
+        stats.map((s) => (
+          <div class="hero-stat">
+            <strong>{s.value}</strong>
+            <span>{s.label}</span>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
