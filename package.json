@@ -1,0 +1,17 @@
+{
+  "name": "dokumentasi-magang-diskominfo",
+  "version": "1.0.0",
+  "description": "Portal dokumentasi kegiatan magang Diskominfo Tuban",
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rassyy/dokumentasi-magang-diskominfo.git"
+  },
+  "license": "ISC"
+}
