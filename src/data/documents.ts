@@ -1,0 +1,60 @@
+import type { DocumentItem } from '../types';
+
+export const DOCUMENTS: DocumentItem[] = [
+  {
+    id: 'proxmox-mikrotik',
+    title: 'Implementasi Proxmox VE dan Integrasi MikroTik',
+    category: 'virtualization',
+    file: '/assets/pdf/Implementasi Proxmox VE dan Integrasi MikroTik.pdf',
+    week: 4,
+    desc: 'Panduan implementasi hypervisor Proxmox VE dan integrasi dengan router MikroTik.',
+  },
+  {
+    id: 'instalasi-vm-wordpress',
+    title: 'Installasi VM dan WordPress',
+    category: 'virtualization',
+    file: '/assets/pdf/Installasi Vm dan Wordpress.pdf',
+    week: 4,
+    desc: 'Langkah instalasi virtual machine dan stack WordPress.',
+  },
+  {
+    id: 'cloudflare-tunnel',
+    title: 'Step by Step Cloudflare Tunnel',
+    category: 'cloud',
+    file: '/assets/pdf/step by step cloudflare tunnel.pdf',
+    week: 4,
+    desc: 'Konfigurasi Cloudflare Zero Trust Tunnel untuk ekspose layanan ke publik.',
+  },
+  {
+    id: 'subnetting-virtualbox-slax',
+    title: 'Step By Step Subnetting VirtualBox SLAX',
+    category: 'networking',
+    file: '/assets/pdf/Step By Step Subnetting VirtualBox SLAX.pdf',
+    week: 4,
+    desc: 'Simulasi subnetting menggunakan VirtualBox dan Linux SLAX.',
+  },
+  {
+    id: 'vlan-simulasi',
+    title: 'Simulasi VLAN',
+    category: 'networking',
+    file: '/assets/pdf/vlan-simulasi.pdf',
+    week: 4,
+    desc: 'Konfigurasi dan simulasi VLAN mode trunk-access serta tag-untag.',
+  },
+  {
+    id: 'simulasi-hotspot-gns3',
+    title: 'Simulasi Hotspot MikroTik di GNS3',
+    category: 'networking',
+    file: '/assets/pdf/simulasi-hotspot-gns3.pdf',
+    week: 4,
+    desc: 'Simulasi topologi hotspot MikroTik menggunakan GNS3.',
+  },
+  {
+    id: 'langkah-instalasi-vm-proxmox',
+    title: 'Langkah Installasi VM pada Proxmox VE',
+    category: 'virtualization',
+    file: '/assets/pdf/Langkah Installasi VM pada Proxmox VE.pdf',
+    week: 4,
+    desc: 'Panduan langkah instalasi VM pada Proxmox VE.',
+  },
+];
