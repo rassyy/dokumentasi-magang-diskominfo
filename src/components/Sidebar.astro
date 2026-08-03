@@ -19,7 +19,7 @@ const currentPath = Astro.url.pathname;
     </div>
   </div>
   <nav class="sidebar-nav" id="sidebar-nav">
-    <!-- sliding indicator, positioned by JS -->
+    <!-- frosted glass pill, slides between items -->
     <div class="nav-indicator" id="nav-indicator"></div>
     {
       navItems.map((item, i) => (
@@ -40,35 +40,50 @@ const currentPath = Astro.url.pathname;
 </aside>
 
 <script>
-  // Slide the active pill indicator to the current nav item
   const nav = document.getElementById('sidebar-nav');
   const indicator = document.getElementById('nav-indicator');
   if (nav && indicator) {
-    const position = () => {
-      const active = nav.querySelector('.nav-link.active');
-      if (!active) return;
-      indicator.style.top = active.offsetTop + 'px';
-      indicator.style.height = active.offsetHeight + 'px';
+    const links = Array.from(nav.querySelectorAll('.nav-link'));
+    const move = (link) => {
+      indicator.style.top = link.offsetTop + 'px';
+      indicator.style.left = link.offsetLeft + 'px';
+      indicator.style.width = link.offsetWidth + 'px';
+      indicator.style.height = link.offsetHeight + 'px';
       indicator.style.opacity = '1';
     };
-    // Run after fonts/layout settle
-    requestAnimationFrame(() => requestAnimationFrame(position));
-    window.addEventListener('resize', position);
+    const syncActive = () => move(links.find((l) => l.classList.contains('active')) || links[0]);
+
+    // position on load after layout settled
+    requestAnimationFrame(() => requestAnimationFrame(syncActive));
+    window.addEventListener('resize', syncActive);
+
+    // slide to hovered item, revert to active on leave
+    links.forEach((link) => {
+      link.addEventListener('mouseenter', () => move(link));
+      nav.addEventListener('mouseleave', syncActive);
+    });
   }
 </script>
 
 <style>
   .sidebar-nav {
     position: relative;
+    flex: 1;
   }
   .nav-indicator {
     position: absolute;
-    left: 0;
-    width: 4px;
-    border-radius: 99px;
-    background: linear-gradient(180deg, var(--accent), #004d99);
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(18px) saturate(180%);
+    -webkit-backdrop-filter: blur(18px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 16px rgba(0, 30, 80, 0.06);
+    border-radius: var(--radius-md);
     opacity: 0;
-    transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1), height 0.35s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s;
     z-index: 0;
+    transition: top 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                left 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                width 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                height 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+                opacity 0.25s;
   }
 </style>
