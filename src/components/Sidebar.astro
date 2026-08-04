@@ -7,7 +7,7 @@ const navItems = [
   { href: '/profil', label: 'Profil', icon: 'person' },
 ];
 
-const currentPath = Astro.url.pathname;
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 ---
 
 <aside class="sidebar glass" id="sidebar">
@@ -72,11 +72,11 @@ const currentPath = Astro.url.pathname;
   }
   .nav-indicator {
     position: absolute;
-    background: rgba(0, 117, 222, 0.12);
+    background: linear-gradient(135deg, var(--accent), #004d99);
     backdrop-filter: blur(12px) saturate(180%);
     -webkit-backdrop-filter: blur(12px) saturate(180%);
-    border: 1px solid rgba(0, 117, 222, 0.25);
-    box-shadow: 0 4px 16px rgba(0, 117, 222, 0.1);
+    border: none;
+    box-shadow: 0 4px 16px rgba(0, 117, 222, 0.3);
     border-radius: var(--radius-md);
     opacity: 0;
     z-index: 0;
