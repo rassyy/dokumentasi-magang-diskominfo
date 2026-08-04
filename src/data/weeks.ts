@@ -82,18 +82,4 @@ export const WEEKS: Week[] = [
     ],
     documents: ['laporan-hermes-9router'],
   },
-  {
-    id: 'minggu-6',
-    number: 6,
-    title: 'Rekap Akhir: Kumpulan Semua Materi',
-    subtitle: 'Gabungan seluruh dokumentasi magang dalam satu file',
-    status: 'completed',
-    categories: ['compilation'],
-    summary: 'Penyusunan gabungan seluruh PDF materi magang dari awal hingga akhir menjadi satu dokumen kompilasi untuk referensi lengkap.',
-    activities: [
-      { title: 'Menggabungkan seluruh PDF materi magang ke dalam satu dokumen.' },
-      { title: 'Memublikasikan dokumen kompilasi ke portal dokumentasi.' },
-    ],
-    documents: ['kumpulan-semua-materi'],
-  },
 ];
