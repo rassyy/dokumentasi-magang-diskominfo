@@ -46,8 +46,8 @@ const currentPath = Astro.url.pathname;
     const links = Array.from(nav.querySelectorAll('.nav-link'));
     const move = (link) => {
       indicator.style.top = link.offsetTop + 'px';
-      indicator.style.left = link.offsetLeft + 'px';
-      indicator.style.width = link.offsetWidth + 'px';
+      indicator.style.left = link.offsetLeft + 6 + 'px';
+      indicator.style.width = link.offsetWidth - 12 + 'px';
       indicator.style.height = link.offsetHeight + 'px';
       indicator.style.opacity = '1';
     };
