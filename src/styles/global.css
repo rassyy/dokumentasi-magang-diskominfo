@@ -26,7 +26,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: linear-gradient(135deg, #a7f3d0 0%, #bae6fd 100%);
+  background: linear-gradient(135deg, #eef6ff 0%, #ffffff 30%, #dcfce7 70%, #f0fdf4 100%);
   background-attachment: fixed;
   position: relative;
   color: var(--text);
@@ -71,12 +71,12 @@ h1, h2, h3 { letter-spacing: -0.025em; }
 }
 
 .card {
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.75);
   border-radius: var(--radius-lg);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
 }
 .card.glass,
 .glass.card {
@@ -121,11 +121,10 @@ h1, h2, h3 { letter-spacing: -0.025em; }
 
 .sidebar {
   width: 280px;
-  background: rgba(255, 255, 255, 0.15);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-right: 1px solid rgba(255, 255, 255, 0.3);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
+  border-right: 1px solid rgba(255, 255, 255, 0.6);
   position: fixed;
   top: 0;
   bottom: 0;
@@ -233,9 +232,14 @@ h1, h2, h3 { letter-spacing: -0.025em; }
 }
 
 .hero {
-  padding: 96px 24px 64px;
-  background: transparent;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  padding: 64px 32px;
+  margin: 24px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-xl);
   position: relative;
 }
 
