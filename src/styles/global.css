@@ -47,13 +47,13 @@ body::after {
 }
 body::before {
   width: 600px; height: 600px;
-  background: rgba(0, 117, 222, 0.10);
+  background: rgba(0, 117, 222, 0.03);
   top: -150px; right: -100px;
   animation: drift 18s ease-in-out infinite;
 }
 body::after {
   width: 500px; height: 500px;
-  background: rgba(26, 174, 57, 0.08);
+  background: rgba(26, 174, 57, 0.02);
   bottom: -150px; left: -80px;
   animation: drift 22s ease-in-out infinite reverse;
 }
@@ -177,10 +177,10 @@ h1, h2, h3 { letter-spacing: -0.025em; }
   transition: color 0.25s, transform 0.2s;
   white-space: nowrap;
 }
-.nav-link:hover { color: #ffffff; transform: translateX(3px); text-decoration: none; }
-.nav-link:hover .nav-icon { color: #ffffff; }
-.nav-link.active { color: #ffffff; }
-.nav-link.active .nav-icon { color: #ffffff; }
+.nav-link:hover { color: var(--accent); transform: translateX(3px); text-decoration: none; }
+.nav-link:hover .nav-icon { color: var(--accent); }
+.nav-link.active { color: var(--accent); }
+.nav-link.active .nav-icon { color: var(--accent); }
 .nav-icon { font-size: 16px; }
 
 .sidebar-footer { padding: 16px 8px 0; font-size: 12px; color: var(--muted-soft); border-top: 1px solid var(--border); }
