@@ -70,7 +70,7 @@ export const DOCUMENTS: DocumentItem[] = [
     title: 'Kumpulan Semua Materi dari Awal hingga Akhir',
     category: 'compilation',
     file: '/assets/pdf/KUMPULAN SEMUA MATERI DARI AWAL HINGGA AKHIR.pdf',
-    week: 6,
-    desc: 'Gabungan seluruh PDF materi magang dari awal hingga akhir dalam satu dokumen — referensi lengkap satu file.',
+    week: 5,
+    desc: 'Gabungan seluruh PDF materi magang dari awal hingga akhir dalam satu dokumen, referensi lengkap satu file.',
   },
 ];

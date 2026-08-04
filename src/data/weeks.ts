@@ -71,7 +71,7 @@ export const WEEKS: Week[] = [
     number: 5,
     title: 'Laporan Implementasi Hermes 9Router Proxmox',
     subtitle: 'Implementasi AI agent dengan gateway 9Router di Proxmox',
-    status: 'completed',
+    status: 'planned',
     categories: ['ai-agent'],
     summary: 'Pelaporan implementasi lengkap AI agent Hermes 9Router pada lingkungan Proxmox, termasuk integrasi Telegram gateway, konfigurasi 9Router, dan deployment via Cloudflare tunnel.',
     activities: [
