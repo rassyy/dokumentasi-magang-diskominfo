@@ -1,4 +1,4 @@
-export type Category = 'networking' | 'virtualization' | 'cloud' | 'ai-agent';
+export type Category = 'networking' | 'virtualization' | 'cloud' | 'ai-agent' | 'compilation';
 
 export interface DocumentItem {
   id: string;

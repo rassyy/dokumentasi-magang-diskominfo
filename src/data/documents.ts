@@ -65,4 +65,12 @@ export const DOCUMENTS: DocumentItem[] = [
     week: 5,
     desc: 'Laporan implementasi AI agent Hermes dengan gateway 9Router di lingkungan Proxmox.',
   },
+  {
+    id: 'kumpulan-semua-materi',
+    title: 'Kumpulan Semua Materi dari Awal hingga Akhir',
+    category: 'compilation',
+    file: '/assets/pdf/KUMPULAN SEMUA MATERI DARI AWAL HINGGA AKHIR.pdf',
+    week: 6,
+    desc: 'Gabungan seluruh PDF materi magang dari awal hingga akhir dalam satu dokumen — referensi lengkap satu file.',
+  },
 ];
