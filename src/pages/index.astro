@@ -6,6 +6,7 @@ import { DOCUMENTS } from '../data/documents';
 import { TOPICS } from '../data/topics';
 import { WEEKS } from '../data/weeks';
 import { PROFILES } from '../data/profiles';
+import { TOOLS } from '../data/tools';
 
 const latestDocs = DOCUMENTS.slice(0, 3);
 ---
@@ -33,6 +34,22 @@ const latestDocs = DOCUMENTS.slice(0, 3);
           <p>{d.desc}</p>
           <span class="doc-badge">{d.category}</span>
         </a>
+      ))}
+    </div>
+  </section>
+  <section class="container home-section">
+    <div class="section-head">
+      <h2 class="section-title">Stack Yang Dipelajari</h2>
+    </div>
+    <div class="tool-grid">
+      {TOOLS.map((t, i) => (
+        <div class="tool-card card fade-in-up" style={`transition-delay: ${i * 40}ms`}>
+          <div class="tool-icon material-symbols-outlined">{t.icon}</div>
+          <div class="tool-info">
+            <h4 class="tool-name">{t.name}</h4>
+            <p class="tool-desc">{t.desc}</p>
+          </div>
+        </div>
       ))}
     </div>
   </section>
