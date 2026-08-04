@@ -17,9 +17,14 @@ const institution = {
   </div>
   <div class="profile-page container">
     <section class="institution-card card fade-in-up">
-      <h2 class="profile-section-title">{institution.name}</h2>
-      <p class="profile-desc">{institution.division} · {institution.campus}</p>
-      <p class="profile-desc">Program Studi {institution.study}</p>
+      <div class="institution-head">
+        <img src="/assets/img/diskominfo-logo.png" alt="Logo Diskominfo" class="institution-logo" />
+        <div>
+          <h2 class="profile-section-title">{institution.name}</h2>
+          <p class="profile-desc">{institution.division} · {institution.campus}</p>
+          <p class="profile-desc">Program Studi {institution.study}</p>
+        </div>
+      </div>
     </section>
     <div class="profile-grid">
       {PROFILES.map((p, i) => (

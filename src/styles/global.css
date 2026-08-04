@@ -264,6 +264,21 @@ h1, h2, h3 { letter-spacing: -0.025em; }
   max-width: 720px;
 }
 
+.hero-title-row {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.hero-logo {
+  width: 72px;
+  height: 72px;
+  object-fit: contain;
+  flex-shrink: 0;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12));
+}
+
 .hero-desc { font-size: 18px; line-height: 1.6; color: var(--muted); max-width: 600px; }
 
 .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
@@ -426,6 +441,8 @@ h1, h2, h3 { letter-spacing: -0.025em; }
 .profile-page { display: flex; flex-direction: column; gap: 32px; padding-bottom: 48px; }
 
 .institution-card { padding: 24px; display: flex; flex-direction: column; gap: 6px; }
+.institution-head { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
+.institution-logo { width: 88px; height: 88px; object-fit: contain; flex-shrink: 0; filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.12)); }
 .profile-section-title { font-size: 22px; font-weight: 700; }
 .profile-desc { font-size: 15px; color: var(--muted); }
 
