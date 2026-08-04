@@ -26,7 +26,7 @@ export const TOPICS: Topic[] = [
     id: 'ai-agent',
     name: 'AI Agent Infrastructure',
     desc: 'Hermes Agent, 9Router, dan integrasi Telegram.',
-    docs: [],
-    weeks: [],
+    docs: ['laporan-hermes-9router'],
+    weeks: [5],
   },
 ];

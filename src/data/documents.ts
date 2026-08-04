@@ -57,4 +57,12 @@ export const DOCUMENTS: DocumentItem[] = [
     week: 4,
     desc: 'Panduan langkah instalasi VM pada Proxmox VE.',
   },
+  {
+    id: 'laporan-hermes-9router',
+    title: 'Laporan Implementasi Hermes 9Router Proxmox',
+    category: 'ai-agent',
+    file: '/assets/pdf/Laporan Implementasi Hermes 9Router Proxmox.pdf',
+    week: 5,
+    desc: 'Laporan implementasi AI agent Hermes dengan gateway 9Router di lingkungan Proxmox.',
+  },
 ];
