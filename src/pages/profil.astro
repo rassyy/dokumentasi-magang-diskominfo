@@ -29,8 +29,14 @@ const institution = {
     <div class="profile-grid">
       {PROFILES.map((p, i) => (
         <div class="profile-card card fade-in-up" style={`transition-delay: ${i * 100}ms`}>
-          <div class="profile-avatar">
-            {p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
+          <div class="profile-head-row">
+            <div class="profile-logos">
+              <img src="/assets/img/uin-logo.png" alt="Logo UIN Malang" class="profile-logo" />
+              <img src="/assets/img/diskominfo-logo.png" alt="Logo Diskominfo" class="profile-logo" />
+            </div>
+            <div class="profile-avatar">
+              {p.name.split(' ').map((w) => w[0]).slice(0, 2).join('')}
+            </div>
           </div>
           <h3 class="profile-name">{p.name}</h3>
           <p class="profile-role">{p.role}</p>

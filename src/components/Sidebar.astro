@@ -12,7 +12,10 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 
 <aside class="sidebar glass" id="sidebar">
   <div class="sidebar-header">
-    <span class="sidebar-logo" style="background: linear-gradient(135deg, var(--accent), #004d99);">DM</span>
+    <div class="sidebar-logos">
+      <img src="/assets/img/uin-logo.png" alt="Logo UIN Malang" class="sidebar-logo-img" />
+      <img src="/assets/img/diskominfo-logo.png" alt="Logo Diskominfo" class="sidebar-logo-img" />
+    </div>
     <div>
       <h1 class="sidebar-title">Docs Magang</h1>
       <p class="sidebar-subtitle">Diskominfo Tuban</p>
