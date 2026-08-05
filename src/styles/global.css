@@ -173,6 +173,11 @@ h1, h2, h3 { letter-spacing: -0.025em; }
   filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.12));
 }
 
+.sidebar-logo-img:last-child {
+  width: 36px;
+  height: 36px;
+}
+
 .sidebar-title { font-size: 16px; font-weight: 700; }
 .sidebar-subtitle { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.06em; }
 
