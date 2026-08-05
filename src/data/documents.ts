@@ -73,4 +73,12 @@ export const DOCUMENTS: DocumentItem[] = [
     week: 5,
     desc: 'Gabungan seluruh PDF materi magang dari awal hingga akhir dalam satu dokumen, referensi lengkap satu file.',
   },
+  {
+    id: 'skema-backup-restore',
+    title: 'Skema Backup Restore Server Proxmox',
+    category: 'backup',
+    file: '/assets/pdf/Skema Backup Restore Server Proxmox.pdf',
+    week: 5,
+    desc: 'Laporan implementasi skema backup dan restore aplikasi beserta LXC pada server Proxmox, termasuk sinkronisasi offsite ke Google Drive menggunakan rclone.',
+  },
 ];

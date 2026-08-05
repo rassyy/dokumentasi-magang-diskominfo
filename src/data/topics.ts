@@ -29,4 +29,11 @@ export const TOPICS: Topic[] = [
     docs: ['laporan-hermes-9router'],
     weeks: [5],
   },
+  {
+    id: 'backup',
+    name: 'Backup & Restore',
+    desc: 'Skema backup restore server Proxmox, LXC backup, dan sinkronisasi cloud.',
+    docs: ['skema-backup-restore'],
+    weeks: [5],
+  },
 ];
