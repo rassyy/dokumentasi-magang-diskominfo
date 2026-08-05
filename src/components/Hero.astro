@@ -1,9 +1,18 @@
 ---
+import { DOCUMENTS } from '../data/documents';
+import { TOPICS } from '../data/topics';
+import { WEEKS } from '../data/weeks';
+
+const totalDocs = DOCUMENTS.length;
+const totalTopics = TOPICS.length;
+const totalWeeks = WEEKS.length;
+const completedWeeks = WEEKS.filter((w) => w.status === 'completed').length;
+const progress = Math.round((completedWeeks / totalWeeks) * 100);
 const stats = [
-  { value: '5', label: 'Minggu Magang' },
-  { value: '7', label: 'Dokumen PDF' },
-  { value: '4', label: 'Topik Teknis' },
-  { value: '80%', label: 'Progress' },
+  { value: String(totalWeeks), label: 'Minggu Magang' },
+  { value: String(totalDocs), label: 'Dokumen PDF' },
+  { value: String(totalTopics), label: 'Topik Teknis' },
+  { value: `${progress}%`, label: 'Progress' },
 ];
 ---
 
