@@ -81,4 +81,12 @@ export const DOCUMENTS: DocumentItem[] = [
     week: 5,
     desc: 'Laporan implementasi skema backup dan restore aplikasi beserta LXC pada server Proxmox, termasuk sinkronisasi offsite ke Google Drive menggunakan rclone.',
   },
+  {
+    id: 'monitoring-server-prometheus-grafana',
+    title: 'Dokumentasi Monitoring Server Menggunakan Prometheus dan Grafana',
+    category: 'monitoring',
+    file: '/assets/pdf/Dokumentasi Monitoring Server Menggunakan Prometheus dan Grafana.pdf',
+    week: 5,
+    desc: 'Laporan implementasi sistem monitoring server, virtual machine (CT), Docker, dan device jaringan menggunakan stack Prometheus, Grafana, Node Exporter, Blackbox Exporter, dan SNMP Exporter.',
+  },
 ];

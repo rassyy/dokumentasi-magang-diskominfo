@@ -36,4 +36,11 @@ export const TOPICS: Topic[] = [
     docs: ['skema-backup-restore'],
     weeks: [5],
   },
+  {
+    id: 'monitoring',
+    name: 'Monitoring',
+    desc: 'Sistem monitoring server, virtual machine, Docker, dan device jaringan.',
+    docs: ['monitoring-server-prometheus-grafana'],
+    weeks: [5],
+  },
 ];

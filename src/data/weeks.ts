@@ -69,11 +69,11 @@ export const WEEKS: Week[] = [
   {
     id: 'minggu-5',
     number: 5,
-    title: 'Laporan Implementasi Hermes 9Router & Skema Backup',
-    subtitle: 'Implementasi AI agent dan skema backup server Proxmox',
+    title: 'Laporan Implementasi Hermes 9Router, Skema Backup & Monitoring',
+    subtitle: 'Implementasi AI agent, skema backup server Proxmox dan sistem monitoring',
     status: 'planned',
-    categories: ['ai-agent', 'backup'],
-    summary: 'Pelaporan implementasi lengkap AI agent Hermes 9Router pada lingkungan Proxmox, termasuk integrasi Telegram gateway, konfigurasi 9Router, deployment via Cloudflare tunnel, serta perancangan dan implementasi skema backup restore aplikasi dan LXC server Proxmox dengan sinkronisasi offsite ke Google Drive.',
+    categories: ['ai-agent', 'backup', 'monitoring'],
+    summary: 'Pelaporan implementasi lengkap AI agent Hermes 9Router pada lingkungan Proxmox, perancangan dan implementasi skema backup restore aplikasi dan LXC server Proxmox dengan sinkronisasi offsite ke Google Drive, serta pembangunan sistem monitoring server, virtual machine (CT), Docker, dan device jaringan menggunakan stack Prometheus dan Grafana.',
     activities: [
       { title: 'Setup dan konfigurasi 9Router di lingkungan Proxmox LXC.' },
       { title: 'Integrasi Telegram gateway dengan agent Hermes untuk notifikasi dan kontrol.' },
@@ -82,7 +82,8 @@ export const WEEKS: Week[] = [
       { title: 'Perancangan skema backup restore aplikasi dan LXC server Proxmox dengan LXC backup terpisah.' },
       { title: 'Implementasi sinkronisasi backup offsite ke Google Drive menggunakan rclone.' },
       { title: 'Pengujian restore aplikasi dan LXC untuk memastikan backup berfungsi.' },
+      { title: 'Pembangunan sistem monitoring menggunakan Prometheus, Grafana, Node Exporter, dan SNMP Exporter.' },
     ],
-    documents: ['laporan-hermes-9router', 'skema-backup-restore'],
+    documents: ['laporan-hermes-9router', 'skema-backup-restore', 'monitoring-server-prometheus-grafana'],
   },
 ];
