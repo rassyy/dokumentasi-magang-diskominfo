@@ -89,4 +89,12 @@ export const DOCUMENTS: DocumentItem[] = [
     week: 5,
     desc: 'Laporan implementasi sistem monitoring server, virtual machine (CT), Docker, dan device jaringan menggunakan stack Prometheus, Grafana, Node Exporter, Blackbox Exporter, dan SNMP Exporter.',
   },
+  {
+    id: 'monitoring-jaringan-librenms',
+    title: 'Dokumentasi Monitoring Jaringan Menggunakan LibreNMS',
+    category: 'monitoring',
+    file: '/assets/pdf/Dokumentasi Monitoring Jaringan Menggunakan LibreNMS.pdf',
+    week: 5,
+    desc: 'Laporan implementasi sistem monitoring jaringan menggunakan LibreNMS, mencakup instalasi nginx, MariaDB, PHP, integrasi SNMP, penambahan perangkat MikroTik, dan penjadwalan poller otomatis.',
+  },
 ];

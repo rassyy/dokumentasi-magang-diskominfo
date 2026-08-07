@@ -40,7 +40,7 @@ export const TOPICS: Topic[] = [
     id: 'monitoring',
     name: 'Monitoring',
     desc: 'Sistem monitoring server, virtual machine, Docker, dan device jaringan.',
-    docs: ['monitoring-server-prometheus-grafana'],
+    docs: ['monitoring-server-prometheus-grafana', 'monitoring-jaringan-librenms'],
     weeks: [5],
   },
 ];
